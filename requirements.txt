@@ -1,0 +1,13 @@
+kaggle
+polars 
+deltalake 
+pyarrow 
+sqlalchemy 
+psycopg2-binary 
+python-dotenv 
+dagster 
+dagit 
+dbt-core 
+dbt-postgres 
+great-expectations 
+pytest
