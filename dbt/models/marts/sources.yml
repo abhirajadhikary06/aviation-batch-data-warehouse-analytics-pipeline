@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: public
+    description: Raw airline data loaded from Silver Delta layer
+    tables:
+      - name: raw_airline
+        description: Raw airline data with all original columns
+        columns:
+          - name: passenger_id
+            description: Unique passenger identifier
+            tests:
+              - not_null
+          - name: departure_date
+            description: Date of departure
+            tests:
+              - not_null
+          - name: flight_status
+            description: Flight status (On Time, Delayed, Cancelled)
+            tests:
+              - not_null
+          - name: age
+            description: Passenger age
+          - name: gender
+            description: Passenger gender
+          - name: nationality
+            description: Passenger nationality

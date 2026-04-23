@@ -1,0 +1,15 @@
+aviation_warehouse:
+  target: postgres
+  outputs:
+    postgres:
+      type: postgres
+      host: "{{ env_var('SUPABASE_DB_HOST', 'db.' ~ (env_var('SUPABASE_HOST', '').replace('https://', '').replace('http://', ''))) }}"
+      user: "{{ env_var('SUPABASE_USER') }}"
+      password: "{{ env_var('SUPABASE_PASSWORD', env_var('SUPABASE_DB_PASSWORD')) }}"
+      port: "{{ env_var('SUPABASE_PORT', 6543) | int }}"
+      dbname: "{{ env_var('SUPABASE_DB') }}"
+      schema: public
+      threads: 4
+      keepalives_idle: 0
+      timeout_seconds: 300
+      sslmode: "{{ env_var('SUPABASE_SSLMODE', 'require') }}"

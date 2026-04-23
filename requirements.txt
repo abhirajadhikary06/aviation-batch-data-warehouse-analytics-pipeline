@@ -1,4 +1,5 @@
 kaggle
+kagglehub
 polars 
 deltalake 
 pyarrow 
@@ -11,3 +12,6 @@ dbt-core
 dbt-postgres 
 great-expectations 
 pytest
+pyarrow
+dbt
+supabase

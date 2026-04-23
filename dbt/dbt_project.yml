@@ -1,0 +1,36 @@
+
+# Name your project! Project names should be lowercase and use underscores as spaces.
+name: 'aviation_warehouse'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'aviation_warehouse'
+
+# These configurations specify where dbt should look for different types of files.
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuring models
+models:
+  aviation_warehouse:
+    # Config applied to all models within this package
+    materialized: table
+    staging:
+      materialized: view
+    marts:
+      materialized: table
+      schema: public
+
+# Enable test execution and documentation generation
+tests:
+  aviation_warehouse:
+    +schema: public_tests

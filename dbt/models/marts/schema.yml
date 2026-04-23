@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: dim_airport
+    description: Airport dimension built from raw airline records.
+    columns:
+      - name: airport_id
+        description: Surrogate key for airport dimension.
+        tests:
+          - not_null
+          - unique
+      - name: airport_name
+        description: Airport name.
+        tests:
+          - not_null
+          - unique
+      - name: continent
+        description: Airport continent.
+        tests:
+          - not_null
+
+  - name: fact_passenger_flights
+    description: Passenger-level flight fact records.
+    columns:
+      - name: passenger_id
+        description: Passenger identifier.
+        tests:
+          - not_null
+      - name: flight_date
+        description: Flight departure date.
+        tests:
+          - not_null
+      - name: flight_status
+        description: Normalized flight status.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['On Time', 'Delayed', 'Cancelled', 'Unknown']
+
+  - name: fct_flight_metrics
+    description: Daily flight status aggregate metrics.
+    columns:
+      - name: flight_date
+        description: Metric date.
+        tests:
+          - not_null
+          - unique
+      - name: total_flights
+        description: Total flights for the day.
+        tests:
+          - not_null
+      - name: on_time_percentage
+        description: Daily on-time performance percentage.
+        tests:
+          - not_null

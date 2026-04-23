@@ -1,2 +1,30 @@
+# Secrets
 .env
-venv/
+*.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Data + logs
+data/
+logs/
+*.log
+full_pipeline_output*.txt
+
+# Dagster local state
+.tmp_dagster_home_*/
+
+# dbt build artifacts
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+
+# Metabase local state
+metabase/data/
+metabase/plugins/
+
+# OS/editor
+.DS_Store
+Thumbs.db
