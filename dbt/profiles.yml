@@ -4,10 +4,10 @@ aviation_warehouse:
     postgres:
       type: postgres
       host: "{{ env_var('SUPABASE_DB_HOST', 'db.' ~ (env_var('SUPABASE_HOST', '').replace('https://', '').replace('http://', ''))) }}"
-      user: "{{ env_var('SUPABASE_USER') }}"
+      user: "{{ env_var('SUPABASE_USER', 'postgres') }}"
       password: "{{ env_var('SUPABASE_PASSWORD', env_var('SUPABASE_DB_PASSWORD')) }}"
       port: "{{ env_var('SUPABASE_PORT', 6543) | int }}"
-      dbname: "{{ env_var('SUPABASE_DB') }}"
+      dbname: "{{ env_var('SUPABASE_DB', 'postgres') }}"
       schema: public
       threads: 4
       keepalives_idle: 0

@@ -15,3 +15,5 @@ pytest
 pyarrow
 dbt
 supabase
+--extra-index-url https://pypi.cloud.soda.io soda-postgres
+soda-postgres; python_version < "3.13"

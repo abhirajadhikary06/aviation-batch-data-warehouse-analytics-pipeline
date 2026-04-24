@@ -1,0 +1,10 @@
+data_source supabase_postgres:
+  type: postgres
+  connection:
+    host: ${SUPABASE_DB_HOST}
+    port: ${SUPABASE_PORT}
+    username: ${SUPABASE_USER}
+    password: ${SUPABASE_PASSWORD}
+    database: ${SUPABASE_DB}
+    sslmode: ${SUPABASE_SSLMODE}
+

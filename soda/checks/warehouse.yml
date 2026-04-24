@@ -1,0 +1,17 @@
+checks for public.raw_airline:
+  - row_count > 0
+  - missing_count(passenger_id) = 0
+  - missing_count(departure_date) = 0
+
+checks for public_public.dim_airport:
+  - row_count > 0
+  - missing_count(airport_name) = 0
+
+checks for public_public.fact_passenger_flights:
+  - row_count > 0
+  - missing_count(passenger_id) = 0
+
+checks for public_public.fct_flight_metrics:
+  - row_count > 0
+  - min(on_time_percentage) >= 0
+  - max(on_time_percentage) <= 100
